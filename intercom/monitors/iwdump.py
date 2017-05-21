@@ -61,6 +61,6 @@ def main(wifi_AP):
 
 
 if __name__ == '__main__':
-    wifi_AP = input('Wifi AP name: ')
+    wifi_AP = eval(input('Wifi AP name: '))
     main(wifi_AP)
 

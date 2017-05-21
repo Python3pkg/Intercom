@@ -37,7 +37,7 @@ def discover_relay():
         data, addr = s.recvfrom(1024)
         if data.startswith(ANNOUNCE_MAGIC):
             relay_ip = data[len(ANNOUNCE_MAGIC):].decode('utf-8')
-            print("Got service announcement from", relay_ip)
+            print(("Got service announcement from", relay_ip))
             return ('tcp://{}:5555'.format(relay_ip),
                     'tcp://{}:5556'.format(relay_ip))
 
@@ -103,8 +103,8 @@ class Minion:
         if discover:
             relay_out, relay_in = discover_relay()
 
-        print('relay_out', relay_out)
-        print('relay_in', relay_in)
+        print(('relay_out', relay_out))
+        print(('relay_in', relay_in))
 
         self.setup_zmq(relay_out)
         self._relay_in = relay_in

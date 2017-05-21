@@ -93,7 +93,7 @@ def filterAcc(accel):
         unknown = 0
 
     if unknown == 1:
-        print("Unknown data: 6: " + str(ord(accel[6])) + "\t5: " + str(ord(accel[5])) + "\t4: " + str(ord(accel[4])) + "\t3: " + str(ord(accel[3])) + "\t2: " + str(ord(accel[2])) + "\t1: " + str(ord(accel[1])) + "\t0: " + str(ord(accel[0])))
+        print(("Unknown data: 6: " + str(ord(accel[6])) + "\t5: " + str(ord(accel[5])) + "\t4: " + str(ord(accel[4])) + "\t3: " + str(ord(accel[3])) + "\t2: " + str(ord(accel[2])) + "\t1: " + str(ord(accel[1])) + "\t0: " + str(ord(accel[0]))))
         return
 
     return measure
@@ -108,7 +108,7 @@ def main():
     while True:
         measure = filterAcc(requestRawAccData(ser))
         if measure:
-            print('measure', measure)
+            print(('measure', measure))
             msg = {'name': controller.name,
                    'values': measure,
                    }

@@ -78,16 +78,16 @@ def switch(topic, msg):
         switch_plug = bytes('p' + msg['plug'], 'utf-8')
         instruction = {'on': b'w1', 'off': b'w0'}[msg['action']]
 
-        print(switch_group + switch_plug + instruction)
+        print((switch_group + switch_plug + instruction))
         try:
             arduino.write(switch_group + switch_plug + instruction)
         except serial.serialutil.SerialException as e:
-            print('Exception:', e)
+            print(('Exception:', e))
             arduino = connect_arduino()
             sleep(0.5)
             arduino.write(switch_group + switch_plug + instruction)
     else:
-        print('Unknown: ', msg)
+        print(('Unknown: ', msg))
 
 
 minion.setup()

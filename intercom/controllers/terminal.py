@@ -32,14 +32,14 @@ from intercom.controller import Controller
 def main():
     controller = Controller('terminal')
     while True:
-        user_input = input(random.choice(('(^-^)', '(^_~)', '(^_-)', '(O.O)', '(^o^)')) + ' ')
+        user_input = eval(input(random.choice(('(^-^)', '(^_~)', '(^_-)', '(O.O)', '(^o^)')) + ' '))
         # Validation:
         try:
             instruction, args = user_input.split(' ', 1)
             msg = json.loads(args)
             controller.send(instruction, msg)
         except ValueError as e:
-            print('Wrong format, {}'.format(e))
+            print(('Wrong format, {}'.format(e)))
             continue
 
 if __name__ == '__main__':

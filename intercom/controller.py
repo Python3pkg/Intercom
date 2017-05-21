@@ -65,7 +65,7 @@ class SampleController(Controller):
                'plug': '10000',
                'action': action,
                }
-        print('Sending:', topic, msg)
+        print(('Sending:', topic, msg))
         self.send(topic, msg)
 
 if __name__ == '__main__':

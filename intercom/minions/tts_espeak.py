@@ -31,7 +31,7 @@ minion = Minion('minion.tts')
 
 @minion.register('do:tts.say')
 def suspend(topic, msg):
-    print(topic, msg)
+    print((topic, msg))
     if 'text' in msg:
         text = msg['text'].encode()
         print('Talking...')

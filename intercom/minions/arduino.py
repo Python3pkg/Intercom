@@ -44,22 +44,22 @@ class ArduinoMinion(Minion):
 
 
     def receive(self, topic, msg):
-        print(topic, msg)
+        print((topic, msg))
         if 'action' in msg:
             switch_group = bytes('n' + msg['group'], 'utf-8')
             switch_plug = bytes('p' + msg['plug'], 'utf-8')
             instruction = {'on': b'w1', 'off': b'w0'}[msg['action']]
 
-            print(switch_group + switch_plug + instruction)
+            print((switch_group + switch_plug + instruction))
             try:
                 self.serial.write(switch_group + switch_plug + instruction)
             except serial.serialutil.SerialException as e:
-                print('Exception:', e)
+                print(('Exception:', e))
                 self.setup()
                 time.sleep(0.5)
                 self.serial.write(switch_group + switch_plug + instruction)
         else:
-            print('Unknown: ', msg)
+            print(('Unknown: ', msg))
 
 if __name__ == '__main__':
     m = ArduinoMinion(('', 'do:arduino.switch', 'do:arduino.read'))

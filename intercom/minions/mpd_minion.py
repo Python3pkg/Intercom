@@ -52,7 +52,7 @@ def volume(topic, msg):
     if value is not None:
         os.system('mpc volume {}'.format(value))
     else:
-        print('Missing volume value', msg)
+        print(('Missing volume value', msg))
 
 @minion.register('discover.minion')
 def discover(topic, msg):

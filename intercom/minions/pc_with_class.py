@@ -38,7 +38,7 @@ class PCMinion(Minion):
         super(PCMinion, self).__init__(topics, intercom)
 
     def receive(self, topic, msg):
-        print(topic, msg)
+        print((topic, msg))
         if topic == 'do:pc.suspend':
             print('Suspending...')
             os.system('sudo pm-suspend')
